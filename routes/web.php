@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,8 +21,12 @@ Route::get('/', function () {
 });
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
+Route::post('/login', [LoginController::class, 'authenticate']);
 
 
 
 
 Route::get('/register', [RegisterController::class, 'showRegistrationForm']);
+
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
