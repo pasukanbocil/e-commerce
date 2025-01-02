@@ -21,13 +21,14 @@ class LoginController extends Controller
 
         if (auth()->attempt($validated)) {
             $request->session()->regenerate();
-
+            toastr()->success('Login Berhasil, Selamat datang ' . auth()->user()->name);
             if (auth()->user()->role == 'admin') {
                 return redirect()->intended('/dashboard');
             } else {
                 return redirect()->intended('/');
             }
         }
-        return back()->with('loginError', 'Email atau password salah');
+        toastr()->error('Login Gagal, Silahkan cek kembali email dan password anda');
+        return back();
     }
 }
