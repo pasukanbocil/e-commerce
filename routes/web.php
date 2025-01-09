@@ -36,5 +36,6 @@ Route::get('/register', [RegisterController::class, 'showRegistrationForm']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
-Route::get('/category', [CategoryController::class, 'index']);
-Route::get('/category/create', [CategoryController::class, 'create']);
+Route::get('/dashboard/category', [CategoryController::class, 'index']);
+Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
+Route::post('/category', [CategoryController::class, 'store']);
