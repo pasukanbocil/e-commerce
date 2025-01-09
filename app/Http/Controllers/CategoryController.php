@@ -12,4 +12,11 @@ class CategoryController extends Controller
             'title' => 'Category | Kemed Store'
         ]);
     }
+
+    public function create()
+    {
+        return view('category.create', [
+            'title' => 'Create Category | Kemed Store'
+        ]);
+    }
 }

@@ -8,7 +8,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('dashboard.main', [
+        return view('dashboard.index', [
             'title' => 'Dashboard | Kemed Store',
         ]);
     }
