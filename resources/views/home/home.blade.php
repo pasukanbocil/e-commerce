@@ -1,175 +1,247 @@
 @extends('home.main')
-@section('hero-section')
-    <section class="bg-gray-50">
-        <div class="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
-            <div class="mx-auto max-w-xl text-center">
-                <h1 class="text-3xl font-extrabold sm:text-5xl">
-                    Selamat Datang di Kemed Store
-                </h1>
+@section('carousel')
+    <div class="carousel-inner relative overflow-hidden w-full">
+        <!--Slide 1-->
+        <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden=""
+            checked="checked">
+        <div class="carousel-item absolute opacity-0" style="height:50vh;">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
+                style="background-image: url('https://images.unsplash.com/photo-1422190441165-ec2956dc9ecc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
 
-                <p class="mt-4 sm:text-xl/relaxed">
-                    Kemed Store adalah toko online yang menyediakan berbagai macam produk dan bisa topup apapun dengan
-                    harga terjangkau.
-                </p>
-                <div class="mt-8 flex flex-wrap justify-center gap-4">
-                    <form class="flex w-full sm:w-auto" action="#" method="GET">
-                        <input type="text" name="search"
-                            class="block w-full rounded-l px-4 py-3 text-sm font-medium text-gray-700 shadow focus:outline-none focus:ring"
-                            placeholder="Search Product...">
-                        <button type="submit"
-                            class="block rounded-r bg-red-600 px-4 py-3 text-sm font-medium text-white shadow hover:bg-red-700 focus:outline-none focus:ring active:bg-red-500">
-                            Search
-                        </button>
-                    </form>
+                <div class="container mx-auto">
+                    <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                        <p class="text-black text-2xl my-4">Stripy Zig Zag Jigsaw Pillow and Duvet Set</p>
+                        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                            href="#">view product</a>
+                    </div>
                 </div>
+
             </div>
         </div>
-    </section>
+        <label for="carousel-3"
+            class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+        <label for="carousel-2"
+            class="next control-1 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
+        <!--Slide 2-->
+        <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+        <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:50vh;">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
+                style="background-image: url('https://images.unsplash.com/photo-1533090161767-e6ffed986c88?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjM0MTM2fQ&auto=format&fit=crop&w=1600&q=80');">
+
+                <div class="container mx-auto">
+                    <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                        <p class="text-black text-2xl my-4">Real Bamboo Wall Clock</p>
+                        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                            href="#">view product</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <label for="carousel-1"
+            class="prev control-2 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+        <label for="carousel-3"
+            class="next control-2 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
+        <!--Slide 3-->
+        <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+        <div class="carousel-item absolute opacity-0" style="height:50vh;">
+            <div class="block h-full w-full mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-bottom"
+                style="background-image: url('https://images.unsplash.com/photo-1519327232521-1ea2c736d34d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1600&q=80');">
+
+                <div class="container mx-auto">
+                    <div class="flex flex-col w-full lg:w-1/2 md:ml-16 items-center md:items-start px-6 tracking-wide">
+                        <p class="text-black text-2xl my-4">Brown and blue hardbound book</p>
+                        <a class="text-xl inline-block no-underline border-b border-gray-600 leading-relaxed hover:text-black hover:border-black"
+                            href="#">view product</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <label for="carousel-2"
+            class="prev control-3 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
+        <label for="carousel-1"
+            class="next control-3 w-10 h-10 mr-2 md:mr-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900  leading-tight text-center z-10 inset-y-0 right-0 my-auto">›</label>
+
+        <!-- Add additional indicators for each slide-->
+        <ol class="carousel-indicators">
+            <li class="inline-block mr-3">
+                <label for="carousel-1"
+                    class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+            </li>
+            <li class="inline-block mr-3">
+                <label for="carousel-2"
+                    class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+            </li>
+            <li class="inline-block mr-3">
+                <label for="carousel-3"
+                    class="carousel-bullet cursor-pointer block text-4xl text-gray-400 hover:text-gray-900">•</label>
+            </li>
+        </ol>
+
+    </div>
 @endsection
 @section('content')
-    <a href="#" class="group relative block overflow-hidden">
-        <button
-            class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-            <span class="sr-only">Cart</span>
+    <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-            </svg>
-        </button>
+        <nav id="store" class="w-full z-30 top-0 px-6 py-1">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 px-2 py-3">
 
-        <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-            alt="" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
+                <a class="uppercase tracking-wide no-underline hover:no-underline font-bold text-gray-800 text-xl "
+                    href="#">
+                    Products
+                </a>
 
-        <div class="relative border border-gray-100 bg-white p-6">
-            <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
+                <div class="flex items-center" id="store-nav-content">
 
-            <h3 class="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
+                    <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24">
+                            <path d="M7 11H17V13H7zM4 7H20V9H4zM10 15H14V17H10z" />
+                        </svg>
+                    </a>
 
-            <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
+                    <a class="pl-3 inline-block no-underline hover:text-black" href="#">
+                        <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24"
+                            height="24" viewBox="0 0 24 24">
+                            <path
+                                d="M10,18c1.846,0,3.543-0.635,4.897-1.688l4.396,4.396l1.414-1.414l-4.396-4.396C17.365,13.543,18,11.846,18,10 c0-4.411-3.589-8-8-8s-8,3.589-8,8S5.589,18,10,18z M10,4c3.309,0,6,2.691,6,6s-2.691,6-6,6s-6-2.691-6-6S6.691,4,10,4z" />
+                        </svg>
+                    </a>
 
-            <form class="mt-4">
-                <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
-                    Beli
-                </button>
-            </form>
+                </div>
+            </div>
+        </nav>
+
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1555982105-d25af4182e4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
         </div>
-    </a>
-    <a href="#" class="group relative block overflow-hidden">
-        <button
-            class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-            <span class="sr-only">Cart</span>
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-            </svg>
-        </button>
-
-        <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-            alt="" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
-
-        <div class="relative border border-gray-100 bg-white p-6">
-            <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
-
-            <h3 class="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
-
-            <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
-
-            <form class="mt-4">
-                <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
-                    Add to Cart
-                </button>
-            </form>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
         </div>
-    </a>
-    <a href="#" class="group relative block overflow-hidden">
-        <button
-            class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-            <span class="sr-only">Cart</span>
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-            </svg>
-        </button>
-
-        <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-            alt="" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
-
-        <div class="relative border border-gray-100 bg-white p-6">
-            <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
-
-            <h3 class="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
-
-            <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
-
-            <form class="mt-4">
-                <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
-                    Add to Cart
-                </button>
-            </form>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1449247709967-d4461a6a6103?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
         </div>
-    </a>
-    <a href="#" class="group relative block overflow-hidden">
-        <button
-            class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-            <span class="sr-only">Cart</span>
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-            </svg>
-        </button>
-
-        <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-            alt="" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
-
-        <div class="relative border border-gray-100 bg-white p-6">
-            <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
-
-            <h3 class="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
-
-            <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
-
-            <form class="mt-4">
-                <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
-                    Add to Cart
-                </button>
-            </form>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
         </div>
-    </a>
-    <a href="#" class="group relative block overflow-hidden">
-        <button
-            class="absolute end-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75">
-            <span class="sr-only">Cart</span>
 
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                stroke="currentColor" class="size-4">
-                <path stroke-linecap="round" stroke-linejoin="round"
-                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-1.6 8M17 13l1.6 8M9 21a1 1 0 100-2 1 1 0 000 2zm6 0a1 1 0 100-2 1 1 0 000 2z" />
-            </svg>
-        </button>
-
-        <img src="https://images.unsplash.com/photo-1599481238640-4c1288750d7a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2664&q=80"
-            alt="" class="h-64 w-full object-cover transition duration-500 group-hover:scale-105 sm:h-72" />
-
-        <div class="relative border border-gray-100 bg-white p-6">
-            <span class="whitespace-nowrap bg-yellow-400 px-3 py-1.5 text-xs font-medium"> New </span>
-
-            <h3 class="mt-4 text-lg font-medium text-gray-900">Robot Toy</h3>
-
-            <p class="mt-1.5 text-sm text-gray-700">$14.99</p>
-
-            <form class="mt-4">
-                <button class="block w-full rounded bg-yellow-400 p-4 text-sm font-medium transition hover:scale-105">
-                    Add to Cart
-                </button>
-            </form>
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1467949576168-6ce8e2df4e13?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
         </div>
-    </a>
+
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1544787219-7f47ccb76574?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
+        </div>
+
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1550837368-6594235de85c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
+        </div>
+
+        <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
+            <a href="#">
+                <img class="hover:grow hover:shadow-lg"
+                    src="https://images.unsplash.com/photo-1551431009-a802eeec77b1?ixlib=rb-1.2.1&auto=format&fit=crop&w=400&h=400&q=80">
+                <div class="pt-3 flex items-center justify-between">
+                    <p class="">Product Name</p>
+                    <svg class="h-6 w-6 fill-current text-gray-500 hover:text-black" xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24">
+                        <path
+                            d="M12,4.595c-1.104-1.006-2.512-1.558-3.996-1.558c-1.578,0-3.072,0.623-4.213,1.758c-2.353,2.363-2.352,6.059,0.002,8.412 l7.332,7.332c0.17,0.299,0.498,0.492,0.875,0.492c0.322,0,0.609-0.163,0.792-0.409l7.415-7.415 c2.354-2.354,2.354-6.049-0.002-8.416c-1.137-1.131-2.631-1.754-4.209-1.754C14.513,3.037,13.104,3.589,12,4.595z M18.791,6.205 c1.563,1.571,1.564,4.025,0.002,5.588L12,18.586l-6.793-6.793C3.645,10.23,3.646,7.776,5.205,6.209 c0.76-0.756,1.754-1.172,2.799-1.172s2.035,0.416,2.789,1.17l0.5,0.5c0.391,0.391,1.023,0.391,1.414,0l0.5-0.5 C14.719,4.698,17.281,4.702,18.791,6.205z" />
+                    </svg>
+                </div>
+                <p class="pt-1 text-gray-900">£9.99</p>
+            </a>
+        </div>
+
+    </div>
 @endsection

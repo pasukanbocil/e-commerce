@@ -7,6 +7,8 @@
     <title>{{ $title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.output.css') }}" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.all.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.15.10/dist/sweetalert2.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
     <script src="{{ asset('assets/js/init-alpine.js') }}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.css" />
@@ -158,17 +160,20 @@
                                         </a>
                                     </li>
                                     <li class="flex">
-                                        <a class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
-                                            href="#">
-                                            <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
-                                                stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                viewBox="0 0 24 24" stroke="currentColor">
-                                                <path
-                                                    d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
-                                                </path>
-                                            </svg>
-                                            <span>Log out</span>
-                                        </a>
+                                        <form action="/logout" method="POST" id="logout-form">
+                                            @csrf
+                                            <button type="button" onclick="confirmLogout()"
+                                                class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200">
+                                                <svg class="w-4 h-4 mr-3" aria-hidden="true" fill="none"
+                                                    stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                    viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path
+                                                        d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1">
+                                                    </path>
+                                                </svg>
+                                                <span>Log out</span>
+                                            </button>
+                                        </form>
                                     </li>
                                 </ul>
                             </template>
@@ -181,11 +186,31 @@
                     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
                         Dashboard
                     </h2>
-                   @yield('content')
+                    @yield('content')
                 </div>
             </main>
         </div>
     </div>
+
+    
+    <script>
+        function confirmLogout() {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, log out!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    document.getElementById('logout-form').submit();
+                }
+            })
+        }
+    </script>
 </body>
+
 
 </html>

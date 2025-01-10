@@ -27,6 +27,7 @@ Route::get('/product', [HomeController::class, 'product']);
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'authenticate']);
+Route::post('/logout', [LoginController::class, 'logout']);
 
 
 
@@ -39,3 +40,6 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/category', [CategoryController::class, 'index']);
 Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
 Route::post('/category', [CategoryController::class, 'store']);
+Route::get('/dashboard/category/{id}/edit', [CategoryController::class, 'edit']);
+Route::put('/category/{id}', [CategoryController::class, 'update']);
+Route::delete('/category/{id}', [CategoryController::class, 'destroy']);

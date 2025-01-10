@@ -31,4 +31,31 @@ class CategoryController extends Controller
             ->success('Category ' . $category->category_name . ' successfully created');
         return redirect('/dashboard/category');
     }
+
+    public function edit($id)
+    {
+        return view('category.edit', [
+            'title' => 'Edit Category | Kemed Store',
+            'category' => Category::find($id)
+        ]);
+    }
+
+    public function update(CategoryPost $request, $id)
+    {
+        $validated = $request->validated();
+        $category = Category::find($id);
+        $category->update($validated);
+        toastr()
+            ->success('Category ' . $category->category_name . ' successfully updated');
+        return redirect('/dashboard/category');
+    }
+
+    public function destroy($id)
+    {
+        $category = Category::find($id);
+        $category->delete();
+        toastr()
+            ->success('Category ' . $category->category_name . ' successfully deleted');
+        return redirect('/dashboard/category');
+    }
 }

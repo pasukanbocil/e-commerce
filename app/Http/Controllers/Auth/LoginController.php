@@ -31,4 +31,13 @@ class LoginController extends Controller
         toastr()->error('Login Gagal, Silahkan cek kembali email dan password anda');
         return back();
     }
+
+    public function logout(Request $request)
+    {
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        toastr()->success('Logout Berhasil');
+        return redirect('/');
+    }
 }
