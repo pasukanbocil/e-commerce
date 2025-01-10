@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +44,8 @@ Route::post('/category', [CategoryController::class, 'store']);
 Route::get('/dashboard/category/{id}/edit', [CategoryController::class, 'edit']);
 Route::put('/category/{id}', [CategoryController::class, 'update']);
 Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+
+
+Route::get('/dashboard/product', [ProductController::class, 'index']);
+Route::get('/dashboard/product/create', [ProductController::class, 'create']);
+Route::post('/product', [ProductController::class, 'store']);

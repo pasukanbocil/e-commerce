@@ -66,7 +66,7 @@
                                 id="menu-item-0">Signed in as {{ Auth::user()->name }}</span>
                             <a href="/dashboard" class="text-gray-700 block px-4 py-2 text-sm" role="menuitem" tabindex="-1"
                                 id="menu-item-1">Profile</a>
-                            <form method="POST" action="#">
+                            <form method="POST" action="/logout">
                                 @csrf
                                 <button type="submit" class="text-gray-700 block w-full text-left px-4 py-2 text-sm"
                                     role="menuitem" tabindex="-1" id="menu-item-2">Logout</button>

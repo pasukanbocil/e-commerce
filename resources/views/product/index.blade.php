@@ -1,16 +1,16 @@
 @extends('dashboard.main')
 @section('content')
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Data Category
+        Data Product
     </h4>
     <div class="mb-4">
-        <a href="/dashboard/category/create"
+        <a href="/dashboard/product/create"
             class="inline-flex items-center rounded bg-teal-600 px-4 py-2 text-sm font-medium text-white shadow hover:bg-teal-700 focus:outline-none focus:ring active:bg-teal-500">
             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
             </svg>
-            Category
+            Product
         </a>
     </div>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -20,12 +20,17 @@
                     <tr
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">No</th>
-                        <th class="px-4 py-3">Category Name</th>
+                        <th class="px-4 py-3">Product Name</th>
+                        <th class="px-4 py-3">Description</th>
+                        <th class="px-4 py-3">Price</th>
+                        <th class="px-4 py-3">Stock</th>
+                        <th class="px-4 py-3">Image</th>
+                        <th class="px-4 py-3">Category Product</th>
                         <th class="px-4 py-3">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="bg-white divide-y dark:divide-gray-700 dark:bg-gray-800">
-                    @foreach ($categories as $category)
+                    @foreach ($products as $product)
                         <tr class="text-gray-700 dark:text-gray-400">
                             <td class="px-4 py-3">
                                 <div class="flex items-center text-sm">
@@ -35,11 +40,26 @@
                                 </div>
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ $category->category_name }}
+                                {{ $product->name }}
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                {{ $product->description }}
+                            </td>
+                            <td class="px-4 py-3 tex-sm">
+                                {{ $product->price }}
+                            </td>
+                            <td class="px-4 py-3 tex-sm">
+                                {{ $product->stock }}
+                            </td>
+                            <td class="px-4 py-3 tex-sm">
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="Image" class="w-16 h-16 object-cover">
+                            </td>
+                            <td class="px-4 py-3 tex-sm">
+                                {{ $product->category->category_name }}
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <a href="/dashboard/category/{{ $category->id }}/edit"
+                                    <a href="#"
                                         class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                         aria-label="Edit">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -48,8 +68,7 @@
                                             </path>
                                         </svg>
                                     </a>
-                                    <form action="/category/{{ $category->id }}" method="POST"
-                                        onsubmit="return confirmDelete(event)">
+                                    <form action="#}" method="POST" onsubmit="return confirmDelete(event)">
                                         @csrf
                                         @method('DELETE')
                                         <button
@@ -67,20 +86,19 @@
                             </td>
                         </tr>
                     @endforeach
-
                 </tbody>
             </table>
         </div>
         <div
             class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">
-                Showing {{ $categories->firstItem() }} - {{ $categories->lastItem() }} of {{ $categories->total() }}
+                {{-- Showing {{ $categories->firstItem() }} - {{ $categories->lastItem() }} of {{ $categories->total() }} --}}
             </span>
             <span class="col-span-2"></span>
             <!-- Pagination -->
             <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                 <nav aria-label="Table navigation">
-                    {{ $categories->links() }}
+                    {{-- {{ $categories->links() }} --}}
                 </nav>
             </span>
         </div>
