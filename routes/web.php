@@ -49,3 +49,6 @@ Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
 Route::get('/dashboard/product', [ProductController::class, 'index']);
 Route::get('/dashboard/product/create', [ProductController::class, 'create']);
 Route::post('/product', [ProductController::class, 'store']);
+Route::get('/dashboard/product/{id}/edit', [ProductController::class, 'edit']);
+Route::put('/product/{id}', [ProductController::class, 'update']);
+Route::delete('/product/{id}', [ProductController::class, 'destroy']);

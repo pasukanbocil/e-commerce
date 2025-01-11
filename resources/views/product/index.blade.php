@@ -43,23 +43,25 @@
                                 {{ $product->name }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                {{ $product->description }}
+                                <?= $product->description ?>
                             </td>
                             <td class="px-4 py-3 tex-sm">
-                                {{ $product->price }}
+                                Rp. {{ number_format($product->price, 0, ',', '.') }}
                             </td>
                             <td class="px-4 py-3 tex-sm">
                                 {{ $product->stock }}
                             </td>
-                            <td class="px-4 py-3 tex-sm">
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="Image" class="w-16 h-16 object-cover">
+                            <td class="px-4 py-3 text-sm">
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="Image"
+                                    class="w-32 h-32 object-cover rounded-lg">
                             </td>
+
                             <td class="px-4 py-3 tex-sm">
                                 {{ $product->category->category_name }}
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <a href="#"
+                                    <a href="/dashboard/product/{{ $product->id }}/edit"
                                         class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                         aria-label="Edit">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -68,7 +70,8 @@
                                             </path>
                                         </svg>
                                     </a>
-                                    <form action="#}" method="POST" onsubmit="return confirmDelete(event)">
+                                    <form action="/product/{{ $product->id }}" method="POST"
+                                        onsubmit="return confirmDelete(event)">
                                         @csrf
                                         @method('DELETE')
                                         <button
@@ -92,13 +95,13 @@
         <div
             class="grid px-4 py-3 text-xs font-semibold tracking-wide text-gray-500 uppercase border-t dark:border-gray-700 bg-gray-50 sm:grid-cols-9 dark:text-gray-400 dark:bg-gray-800">
             <span class="flex items-center col-span-3">
-                {{-- Showing {{ $categories->firstItem() }} - {{ $categories->lastItem() }} of {{ $categories->total() }} --}}
+                Showing {{ $products->firstItem() }} - {{ $products->lastItem() }} of {{ $products->total() }}
             </span>
             <span class="col-span-2"></span>
-            <!-- Pagination -->
+
             <span class="flex col-span-4 mt-2 sm:mt-auto sm:justify-end">
                 <nav aria-label="Table navigation">
-                    {{-- {{ $categories->links() }} --}}
+                    {{ $products->links() }}
                 </nav>
             </span>
         </div>

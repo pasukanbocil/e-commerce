@@ -2,18 +2,20 @@
 @section('content')
     <!-- Validation inputs -->
     <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Form Add Data Product
+        Form Edit Data Product
     </h4>
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <form action="/product" method="POST" enctype="multipart/form-data">
+        <form action="/product/{{ $product->id }}" method="POST" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">
                     Product Name
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="name" placeholder="Input Product Name" />
+                    type="text" name="name" placeholder="Input Product Name"
+                    value="{{ old('name', $product->name) }}" />
                 @error('name')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
@@ -25,7 +27,8 @@
                     Product Description
                 </span>
             </label>
-            <input id="description" type="hidden" name="description" value="{{ old('description') }}">
+            <input id="description" type="hidden" name="description"
+                value="{{ old('description', $product->description) }}">
             <trix-editor input="description" class="trix-content dark:text-gray-300"></trix-editor>
             @error('description')
                 <span class="text-xs text-red-600 dark:text-red-400">
@@ -38,7 +41,7 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="number" name="price" placeholder="Input Price" />
+                    type="number" name="price" placeholder="Input Price" value="{{ old('price', $product->price) }}" />
                 @error('price')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
@@ -51,7 +54,7 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="number" name="stock" placeholder="Input Stock" />
+                    type="number" name="stock" placeholder="Input Stock" value="{{ old('stock', $product->stock) }}" />
                 @error('stock')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
@@ -64,13 +67,17 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="file" name="image" placeholder="Input Image" />
+                    type="file" name="image" placeholder="Input Image" onchange="previewImage()"
+                    value="{{ $product->image }}" />
                 @error('image')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
                     </span>
                 @enderror
             </label>
+            <img id="image-preview" class="mt-4 w-32 h-32 object-cover"
+                src="{{ $product->image ? asset('storage/' . $product->image) : '' }}">
+
             <label class="block mt-4 text-sm">
                 <span class="text-gray-700 dark:text-gray-400">
                     Category Product
@@ -80,7 +87,10 @@
                     name="category_id">
                     <option value="">Select Category</option>
                     @foreach ($categories as $category)
-                        <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                        <option value="{{ $category->id }}"
+                            {{ old('category_id', $product->category_id) == $category->id ? 'selected' : '' }}>
+                            {{ $category->category_name }}
+                        </option>
                     @endforeach
                 </select>
                 @error('category_id')
@@ -112,4 +122,22 @@
 
         </form>
     </div>
+
+    <script>
+        function previewImage() {
+            const image = document.querySelector('input[name="image"]').files[0];
+            const preview = document.getElementById('image-preview');
+            const reader = new FileReader();
+
+            reader.onloadend = () => {
+                preview.src = reader.result;
+            };
+
+            if (image) {
+                reader.readAsDataURL(image);
+            } else {
+                preview.src = "";
+            }
+        }
+    </script>
 @endsection
