@@ -76,16 +76,15 @@
     @include('home.navbar')
 
     <div class="carousel relative container mx-auto" style="max-width:1600px;">
-       @yield('carousel')
+        @yield('carousel')
     </div>
-
     <section class="bg-white py-8">
         @yield('content')
     </section>
 
 
 
-   @include('home.footer')
+    @include('home.footer')
 
 </body>
 

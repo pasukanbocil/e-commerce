@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
+use App\Models\Product;
+use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Larva\Pexels\Pexels;
 
 class HomeController extends Controller
 {
@@ -11,8 +15,9 @@ class HomeController extends Controller
         return view(
             'home.home',
             [
-                'title' => 'Kemed Store'
-
+                'title' => 'Home | Kemed Store',
+                'categories' => Category::all(),
+                'products' => Product::latest()->limit(10)->get()
             ]
         );
     }
@@ -23,7 +28,6 @@ class HomeController extends Controller
             'home.product',
             [
                 'title' => 'Product | Kemed Store'
-
             ]
         );
     }

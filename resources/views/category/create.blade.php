@@ -20,6 +20,19 @@
                     </span>
                 @enderror
             </label>
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Image
+                </span>
+                <input
+                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                    type="file" name="image" placeholder="Input Image" />
+                @error('image')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </label>
             <div class="mt-6 flex gap-6">
                 <button type="submit"
                     class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-lg shadow hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-teal-200">

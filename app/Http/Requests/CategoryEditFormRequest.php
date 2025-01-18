@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CategoryPost extends FormRequest
+class CategoryEditFormRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,7 +23,6 @@ class CategoryPost extends FormRequest
     {
         return [
             'category_name' => 'required|string|max:255|unique:categories,category_name',
-            'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ];
     }
 
@@ -34,10 +33,6 @@ class CategoryPost extends FormRequest
             'category_name.string' => 'Nama kategori harus berupa huruf',
             'category_name.max' => 'Nama kategori maksimal 255 karakter',
             'category_name.unique' => 'Nama kategori sudah ada',
-            'image.image' => 'Gambar kategori harus berupa gambar',
-            'image.mimes' => 'Gambar kategori harus berformat jpeg, png, jpg',
-            'image.max' => 'Gambar kategori maksimal 2MB',
-            'image.required' => 'Gambar kategori harus diisi'
         ];
     }
 }

@@ -21,6 +21,7 @@
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">No</th>
                         <th class="px-4 py-3">Category Name</th>
+                        <th class="pz-4 py-3">Images</th>
                         <th class="px-4 py-3">Actions</th>
                     </tr>
                 </thead>
@@ -36,6 +37,10 @@
                             </td>
                             <td class="px-4 py-3 text-sm">
                                 {{ $category->category_name }}
+                            </td>
+                            <td class="px-4 py-3 text-sm">
+                                <img src="{{ asset('storage/' . $category->image) }}" alt="Image"
+                                    class="w-32 h-32 object-cover rounded-lg">
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">

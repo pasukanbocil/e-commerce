@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CategoryEditFormRequest;
 use App\Http\Requests\CategoryPost;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -26,6 +28,9 @@ class CategoryController extends Controller
     public function store(CategoryPost $request)
     {
         $validated = $request->validated();
+        if ($request->file('image')) {
+            $validated['image'] = $request->file('image')->store('categories-images');
+        }
         $category = Category::create($validated);
         toastr()
             ->success('Category ' . $category->category_name . ' successfully created');
@@ -40,10 +45,17 @@ class CategoryController extends Controller
         ]);
     }
 
-    public function update(CategoryPost $request, $id)
+    public function update(CategoryEditFormRequest $request, $id)
     {
         $validated = $request->validated();
         $category = Category::find($id);
+        if (request()->hasFile(('image'))) {
+            if ($category->image) {
+                Storage::delete($category->image);
+            }
+
+            $validate['image'] = $request->file('image')->store('categories-images');
+        }
         $category->update($validated);
         toastr()
             ->success('Category ' . $category->category_name . ' successfully updated');
