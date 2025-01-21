@@ -23,6 +23,7 @@ class CategoryEditFormRequest extends FormRequest
     {
         return [
             'category_name' => 'required|string|max:255|unique:categories,category_name',
+            'slug'=> 'required|string|max:255|unique:categories,slug',
         ];
     }
 
@@ -33,6 +34,8 @@ class CategoryEditFormRequest extends FormRequest
             'category_name.string' => 'Nama kategori harus berupa huruf',
             'category_name.max' => 'Nama kategori maksimal 255 karakter',
             'category_name.unique' => 'Nama kategori sudah ada',
+            'slug.required' => 'Slug kategori harus diisi',
+            'slug.unique' => 'Slug kategori sudah ada',
         ];
     }
 }

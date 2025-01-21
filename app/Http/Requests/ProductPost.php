@@ -23,6 +23,7 @@ class ProductPost extends FormRequest
     {
         return [
             'name' => 'required|max:255',
+            'slug' => 'required|max:255|unique:products,slug',
             'description' => 'required',
             'price' => 'required|numeric',
             'stock' => 'required|numeric',
@@ -36,6 +37,9 @@ class ProductPost extends FormRequest
         return [
             'name.required' => 'Nama produk harus diisi',
             'name.max' => 'Nama produk maksimal 255 karakter',
+            'slug.required' => 'Slug produk harus diisi',
+            'slug.max' => 'Slug produk maksimal 255 karakter',
+            'slug.unique' => 'Slug produk sudah ada',
             'description.required' => 'Deskripsi produk harus diisi',
             'price.required' => 'Harga produk harus diisi',
             'price.numeric' => 'Harga produk harus berupa angka',

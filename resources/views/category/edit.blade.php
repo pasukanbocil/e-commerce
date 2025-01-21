@@ -5,7 +5,7 @@
         Form Edit Data Category
     </h4>
     <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <form action="/category/{{ $category->id }}" method="POST" enctype="multipart/form-data">
+        <form action="/category/{{ $category->slug }}" method="POST" enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <label class="block mt-4 text-sm">
@@ -14,9 +14,23 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="category_name" placeholder="Input Category Name"
+                    type="text" name="category_name" id="category_name" placeholder="Input Category Name"
                     value="{{ old('category_name', $category->category_name) }}" />
                 @error('category_name')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </label>
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Slug
+                </span>
+                <input
+                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                    type="text" name="slug" id="slug" placeholder="Input Slug Category"
+                    value="{{ old('slug', $category->slug) }}" />
+                @error('slug')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
                     </span>
@@ -62,6 +76,16 @@
         </form>
     </div>
     <script>
+        const category_name = document.querySelector('#category_name');
+        const slug = document.querySelector('#slug');
+
+        category_name.addEventListener('change', function() {
+            const encodedCategoryName = encodeURIComponent(category_name.value);
+            fetch('/dashboard/category/checkSlug?category_name=' + encodedCategoryName)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+
         function previewImage() {
             const image = document.querySelector('input[name="image"]').files[0];
             const preview = document.getElementById('image-preview');

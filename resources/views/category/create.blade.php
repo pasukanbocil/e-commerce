@@ -13,8 +13,22 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="category_name" placeholder="Input Category Name" />
+                    type="text" name="category_name" id="category_name" placeholder="Input Category Name"
+                    value="{{ old('category_name') }}" />
                 @error('category_name')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </label>
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Slug
+                </span>
+                <input
+                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                    type="text" name="slug" id="slug" placeholder="Input Slug" value="{{ old('slug') }}" />
+                @error('slug')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
                     </span>
@@ -26,7 +40,7 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="file" name="image" placeholder="Input Image" />
+                    type="file" name="image" placeholder="Input Image" value="{{ old('image') }}" />
                 @error('image')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
@@ -56,4 +70,16 @@
 
         </form>
     </div>
+
+    <script>
+        const category_name = document.querySelector('#category_name');
+        const slug = document.querySelector('#slug');
+
+        category_name.addEventListener('change', function() {
+            const encodedCategoryName = encodeURIComponent(category_name.value);
+            fetch('/dashboard/category/checkSlug?category_name=' + encodedCategoryName)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+    </script>
 @endsection

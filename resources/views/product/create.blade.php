@@ -13,8 +13,21 @@
                 </span>
                 <input
                     class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="name" placeholder="Input Product Name" />
+                    type="text" name="name" id="name" placeholder="Input Product Name" />
                 @error('name')
+                    <span class="text-xs text-red-600 dark:text-red-400">
+                        {{ $message }}
+                    </span>
+                @enderror
+            </label>
+            <label class="block mt-4 text-sm">
+                <span class="text-gray-700 dark:text-gray-400">
+                    Slug
+                </span>
+                <input
+                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
+                    type="text" name="slug" id="slug" placeholder="Input Slug Name" />
+                @error('slug')
                     <span class="text-xs text-red-600 dark:text-red-400">
                         {{ $message }}
                     </span>
@@ -112,5 +125,15 @@
 
         </form>
     </div>
-    <script></script>
+    <script>
+        const name = document.querySelector('#name');
+        const slug = document.querySelector('#slug');
+
+        name.addEventListener('change', function() {
+            const encodedName = encodeURIComponent(name.value);
+            fetch('/dashboard/product/checkSlug?name=' + encodedName)
+                .then(response => response.json())
+                .then(data => slug.value = data.slug)
+        });
+    </script>
 @endsection

@@ -6,6 +6,7 @@ use App\Http\Requests\ProductPost;
 use App\Http\Requests\ProductRequestEdit;
 use App\Models\Category;
 use App\Models\Product;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -82,5 +83,11 @@ class ProductController extends Controller
             ->success('Product ' . $product->name . ' successfully deleted');
 
         return redirect('/dashboard/product');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Product::class, 'slug', $request->name);
+        return response()->json(['slug' => $slug]);
     }
 }

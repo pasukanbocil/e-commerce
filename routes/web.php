@@ -25,6 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/product', [HomeController::class, 'product']);
+Route::get('/product/{id}/detail', [HomeController::class, 'detail']);
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'authenticate']);
@@ -40,14 +41,16 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/dashboard/category', [CategoryController::class, 'index']);
 Route::get('/dashboard/category/create', [CategoryController::class, 'create']);
+Route::get('/dashboard/category/checkSlug', [CategoryController::class,'checkSlug']);
 Route::post('/category', [CategoryController::class, 'store']);
-Route::get('/dashboard/category/{id}/edit', [CategoryController::class, 'edit']);
-Route::put('/category/{id}', [CategoryController::class, 'update']);
-Route::delete('/category/{id}', [CategoryController::class, 'destroy']);
+Route::get('/dashboard/category/{slug}/edit', [CategoryController::class, 'edit']);
+Route::put('/category/{slug}', [CategoryController::class, 'update']);
+Route::delete('/category/{slug}', [CategoryController::class, 'destroy']);
 
 
 Route::get('/dashboard/product', [ProductController::class, 'index']);
 Route::get('/dashboard/product/create', [ProductController::class, 'create']);
+Route::get('/dashboard/product/checkSlug', [ProductController::class,'checkSlug']);
 Route::post('/product', [ProductController::class, 'store']);
 Route::get('/dashboard/product/{id}/edit', [ProductController::class, 'edit']);
 Route::put('/product/{id}', [ProductController::class, 'update']);

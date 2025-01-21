@@ -31,4 +31,12 @@ class HomeController extends Controller
             ]
         );
     }
+
+    public function detail($id)
+    {
+        return view('home.detail', [
+            'title' => 'Detail Product | Kemed Store',
+            'product' => Product::with('category')->findOrFail($id)
+        ]);
+    }
 }

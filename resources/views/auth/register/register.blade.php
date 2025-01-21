@@ -10,7 +10,7 @@
 
 <body class="bg-gray-100 flex items-center justify-center h-screen">
     <div class="w-full max-w-md bg-white rounded-lg shadow-md p-8">
-        <a href="/" class="text-indigo-600 hover:text-indigo-500 mb-4 inline-block">
+        <a href="/login" class="text-indigo-600 hover:text-indigo-500 mb-4 inline-block">
             &larr; Back
         </a>
         <h2 class="text-2xl font-bold text-center mb-6">Register</h2>

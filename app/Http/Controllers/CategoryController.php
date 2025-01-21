@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CategoryEditFormRequest;
 use App\Http\Requests\CategoryPost;
 use App\Models\Category;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -37,18 +38,18 @@ class CategoryController extends Controller
         return redirect('/dashboard/category');
     }
 
-    public function edit($id)
+    public function edit($slug)
     {
         return view('category.edit', [
             'title' => 'Edit Category | Kemed Store',
-            'category' => Category::find($id)
+            'category' => Category::where('slug', $slug)->first()
         ]);
     }
 
-    public function update(CategoryEditFormRequest $request, $id)
+    public function update(CategoryEditFormRequest $request, $slug)
     {
         $validated = $request->validated();
-        $category = Category::find($id);
+        $category = Category::where('slug',$slug)->firstOrFail();
         if (request()->hasFile(('image'))) {
             if ($category->image) {
                 Storage::delete($category->image);
@@ -62,12 +63,18 @@ class CategoryController extends Controller
         return redirect('/dashboard/category');
     }
 
-    public function destroy($id)
+    public function destroy($slug)
     {
-        $category = Category::find($id);
+        $category = Category::where('slug', $slug)->firstOrFail();
         $category->delete();
         toastr()
             ->success('Category ' . $category->category_name . ' successfully deleted');
         return redirect('/dashboard/category');
+    }
+
+    public function checkSlug(Request $request)
+    {
+        $slug = SlugService::createSlug(Category::class, 'slug', $request->category_name);
+        return response()->json(['slug' => $slug]);
     }
 }

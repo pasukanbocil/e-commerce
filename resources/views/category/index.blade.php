@@ -21,6 +21,7 @@
                         class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
                         <th class="px-4 py-3">No</th>
                         <th class="px-4 py-3">Category Name</th>
+                        <th class="px-4 py-3">Slug</th>
                         <th class="pz-4 py-3">Images</th>
                         <th class="px-4 py-3">Actions</th>
                     </tr>
@@ -39,12 +40,15 @@
                                 {{ $category->category_name }}
                             </td>
                             <td class="px-4 py-3 text-sm">
+                                {{ $category->slug }}
+                            </td>
+                            <td class="px-4 py-3 text-sm">
                                 <img src="{{ asset('storage/' . $category->image) }}" alt="Image"
                                     class="w-32 h-32 object-cover rounded-lg">
                             </td>
                             <td class="px-4 py-3">
                                 <div class="flex items-center space-x-4 text-sm">
-                                    <a href="/dashboard/category/{{ $category->id }}/edit"
+                                    <a href="/dashboard/category/{{ $category->slug }}/edit"
                                         class="flex items-center justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                                         aria-label="Edit">
                                         <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -53,7 +57,7 @@
                                             </path>
                                         </svg>
                                     </a>
-                                    <form action="/category/{{ $category->id }}" method="POST"
+                                    <form action="/category/{{ $category->slug }}" method="POST"
                                         onsubmit="return confirmDelete(event)">
                                         @csrf
                                         @method('DELETE')

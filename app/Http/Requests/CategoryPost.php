@@ -23,6 +23,7 @@ class CategoryPost extends FormRequest
     {
         return [
             'category_name' => 'required|string|max:255|unique:categories,category_name',
+            'slug'=> 'required|string|max:255|unique:categories,slug',
             'image' => 'required|image|mimes:jpeg,png,jpg|max:2048'
         ];
     }
@@ -34,6 +35,8 @@ class CategoryPost extends FormRequest
             'category_name.string' => 'Nama kategori harus berupa huruf',
             'category_name.max' => 'Nama kategori maksimal 255 karakter',
             'category_name.unique' => 'Nama kategori sudah ada',
+            'slug.required' => 'Slug kategori harus diisi',
+            'slug.unique' => 'Slug kategori sudah ada',
             'image.image' => 'Gambar kategori harus berupa gambar',
             'image.mimes' => 'Gambar kategori harus berformat jpeg, png, jpg',
             'image.max' => 'Gambar kategori maksimal 2MB',
