@@ -32,11 +32,11 @@ class HomeController extends Controller
         );
     }
 
-    public function detail($id)
+    public function detail($slug)
     {
         return view('home.detail', [
             'title' => 'Detail Product | Kemed Store',
-            'product' => Product::with('category')->findOrFail($id)
+            'product' => Product::with('category')->where('slug', $slug)->first()
         ]);
     }
 }

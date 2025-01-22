@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductPost;
-use App\Http\Requests\ProductRequestEdit;
-use App\Models\Category;
 use App\Models\Product;
-use Cviebrock\EloquentSluggable\Services\SlugService;
+use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Http\Requests\ProductPost;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ProductRequestEdit;
+use Cviebrock\EloquentSluggable\Services\SlugService;
 
 class ProductController extends Controller
 {
@@ -31,11 +32,19 @@ class ProductController extends Controller
     public function store(ProductPost $request)
     {
         $validatedData = $request->validated();
-        if ($request->file('image')) {
-            $validatedData['image'] = $request->file('image')->store('products-images');
+        if ($request->hasFile('image')) {
+            $imagePaths = [];
+            foreach ($request->file('image') as $image) {
+                $imagePaths[] = $image->store('products-images');
+            }
+            $validatedData['image'] = json_encode($imagePaths); // Simpan sebagai JSON di database
         }
 
+        $validatedData['excerpt'] = Str::limit(strip_tags($request->description), 200);
+
         $validatedData = Product::create($validatedData);
+
+
         toastr()
             ->success('Product ' . $validatedData->name . ' successfully created');
 

@@ -5,14 +5,14 @@
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
 
             <div class="flex flex-col items-center">
-                <img id="mainImage" src="{{ asset('storage/' . $product->image) }}" alt="Produk"
+                <img id="mainImage" src="{{ asset('storage/' . json_decode($product->image)[0]) }}" alt="Produk"
                     class="w-72 h-72 object-cover rounded-lg shadow-lg">
                 <div class="flex mt-4 space-x-2">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Varian"
+                    <img src="{{ asset('storage/' . json_decode($product->image)[1]) }}" alt="Varian"
                         class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Varian"
+                    <img src="{{ asset('storage/' . json_decode($product->image)[2]) }}"alt="Varian"
                         class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Varian"
+                    <img src="{{ asset('storage/' . json_decode($product->image)[3]) }}"alt="Varian"
                         class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
                 </div>
             </div>
@@ -21,9 +21,10 @@
             <div>
                 <h1 class="text-2xl font-bold text-gray-800">{{ $product->name }}</h1>
                 <div class="mt-2">
-                    <span class="text-xl text-red-500 font-bold">Rp{{ number_format($product->price, 0, ',', '.') }}</span>
-                    <span
-                        class="text-gray-500 line-through ml-2">Rp{{ number_format(rand($product->price + 10000, $product->price + 100000), 0, ',', '.') }}</span>
+                    <span class="text-xl text-red-500 font-bold">Rp.
+                        {{ number_format($product->price, 0, ',', '.') }}</span>
+                    <span class="text-gray-500 line-through ml-2">Rp.
+                        {{ number_format(rand($product->price + 10000, $product->price + 100000), 0, ',', '.') }}</span>
                 </div>
                 <div class="mt-4">
                     <p class="text-sm text-gray-600">Terjual 4 rb+ • ⭐ 4.5 (1.827 rating)</p>
@@ -40,16 +41,13 @@
                 <div class="mt-6">
                     <h2 class="font-bold text-gray-700">Detail:</h2>
 
-                    <!-- Deskripsi Pendek -->
-                    <p class="text-sm text-gray-600 mt-2 leading-relaxed" id="description">
-                        {!! Str::limit($product->description, 150) !!}
-                    </p>
 
-                    <p class="text-sm text-gray-600 hidden" id="full-description">
-                        {!! $product->description !!}
+                    <p class="text-m text-gray-600 mt-2 leading-relaxed" id="description">
+                        {{ $product->excerpt }}
                     </p>
-
-                    <!-- Tombol Toggle -->
+                    <p class="text-m text-gray-600 mt-2 leading-relaxed hidden" id="full-description">
+                        {{ strip_tags($product->description) }}
+                    </p>
                     <a href="javascript:void(0)" id="toggle-description" class="text-blue-500 text-sm mt-2">Lihat
                         Selengkapnya</a>
                 </div>
@@ -130,18 +128,19 @@
             })
         }
 
-        document.getElementById('toggle-description').addEventListener('click', function() {
-            const shortDescription = document.getElementById('description');
-            const fullDescription = document.getElementById('full-description');
+        const description = document.getElementById('description');
+        const fullDescription = document.getElementById('full-description');
+        const toggleDescription = document.getElementById('toggle-description');
 
+        toggleDescription.addEventListener('click', () => {
             if (fullDescription.classList.contains('hidden')) {
                 fullDescription.classList.remove('hidden');
-                shortDescription.classList.add('hidden');
-                this.textContent = 'Lihat Lebih Sedikit';
+                description.classList.add('hidden');
+                toggleDescription.textContent = 'Lihat Lebih Sedikit';
             } else {
                 fullDescription.classList.add('hidden');
-                shortDescription.classList.remove('hidden');
-                this.textContent = 'Lihat Selengkapnya';
+                description.classList.remove('hidden');
+                toggleDescription.textContent = 'Lihat Selengkapnya';
             }
         });
     </script>

@@ -43,7 +43,7 @@
                                 {{ $product->name }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <?= $product->description ?>
+                                {!! $product->description !!}
                             </td>
                             <td class="px-4 py-3 tex-sm">
                                 Rp. {{ number_format($product->price, 0, ',', '.') }}
@@ -52,7 +52,7 @@
                                 {{ $product->stock }}
                             </td>
                             <td class="px-4 py-3 text-sm">
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="Image"
+                                <img src="{{ asset('storage/' . json_decode($product->image)[0]) }}" alt="Image"
                                     class="w-32 h-32 object-cover rounded-lg">
                             </td>
 

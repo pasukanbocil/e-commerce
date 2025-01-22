@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('slug')->unique();
+            $table->text('excerpt');
             $table->text('description');
             $table->integer('price');
             $table->integer('stock');
-            $table->string('image');
+            $table->text('image')->nullable();
             $table->foreignId('category_id')->constrained();
             $table->timestamps();
         });
