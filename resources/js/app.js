@@ -1,1 +1,6 @@
-import './bootstrap';
+import "./bootstrap";
+// index.js
+import "flyonui/flyonui";
+
+
+

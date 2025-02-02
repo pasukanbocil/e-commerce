@@ -31,6 +31,7 @@ class ProductController extends Controller
 
     public function store(ProductPost $request)
     {
+        
         $validatedData = $request->validated();
         if ($request->hasFile('image')) {
             $imagePaths = [];

@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/product', [HomeController::class, 'product']);
-Route::get('/product/{slug}/detail', [HomeController::class, 'detail']);
+Route::get('/product/{product:slug}/detail', [HomeController::class, 'detail']);
 
 Route::get('/login', [LoginController::class, 'showLoginForm']);
 Route::post('/login', [LoginController::class, 'authenticate']);

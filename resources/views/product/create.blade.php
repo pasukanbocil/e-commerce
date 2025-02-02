@@ -1,151 +1,118 @@
 @extends('dashboard.main')
 @section('content')
-    <!-- Validation inputs -->
-    <h4 class="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300">
-        Form Add Data Product
-    </h4>
-    <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
-        <form action="/product" method="POST" enctype="multipart/form-data">
-            @csrf
-            <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Product Name
-                </span>
-                <input
-                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="name" id="name" placeholder="Input Product Name" />
-                @error('name')
-                    <span class="text-xs text-red-600 dark:text-red-400">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </label>
-            <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Slug
-                </span>
-                <input
-                    class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                    type="text" name="slug" id="slug" placeholder="Input Slug Name" />
-                @error('slug')
-                    <span class="text-xs text-red-600 dark:text-red-400">
-                        {{ $message }}
-                    </span>
-                @enderror
-            </label>
-            <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Product Description
-                </span>
-            </label>
-            <div id="editor">
-
-            </div>
-            <input type="hidden" name="description" id="description">
-            @error('description')
-                <span class="text-xs text-red-600 dark:text-red-400">
-                    {{ $message }}
-                </span>
-            @enderror
-            <label for="" class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">
-                    Images
-                </span>
-            </label>
-            <div class="container text-center mb-5 mt-5">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4>Uploads Images Product</h4>
+    <div class="bg-base-100 w-full rounded-lg shadow">
+        <h5 class="bg-base-300 rounded-t-lg p-4 text-base text-xl font-bold">Form Add Product</h5>
+        <div class="w-full p-4">
+            <form action="/product" method="POST" enctype="multipart/form-data">
+                @csrf
+                <div class="w-full">
+                    <h6 class="text-lg font-semibold">Product Details</h6>
+                    <hr class="mb-4 mt-2" />
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    <div>
+                        <label class="label label-text" for="name">Product Name</label>
+                        <input id="name" type="text" name="name" placeholder="Input Product Name" class="input"
+                            @err />
+                        @error('name')
+                            <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label class="label label-text" for="slug">Slug</label>
+                        <input id="slug" name="slug" type="text" placeholder="Slug Name" class="input" @err />
+                        @error('slug')
+                            <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                        @enderror
                     </div>
                 </div>
-            </div>
-
-            <section class="bg-diffrent">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="verify-sub-box">
-                                <div class="file-loading">
-                                    <input id="multiplefileupload" name="image[]" type="file" accept=".jpg,.jpeg,.png"
-                                        multiple>
-                                </div>
-                            </div>
+                <div>
+                    <label class="label label-text" for="description">Description</label>
+                    <div id="editor" class="h-64"></div>
+                    <input type="hidden" name="description" id="description" />
+                    @error('description')
+                        <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                    @enderror
+                </div>
+                <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                    <div>
+                        <label class="label label-text" for="price">Category:</label>
+                        <select class="select max-w-sm appearance-none" aria-label="select" name="category_id">
+                            <option value="">Select Category</option>
+                            @foreach ($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->category_name }}</option>
+                            @endforeach
+                        </select>
+                        @error('category_id')
+                            <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
+                        <label class="label label-text" for="price">Price:</label>
+                        <div class="input-group max-w-sm" data-input-number>
+                            <input class="input" id="price" name="price" type="text" value="0"
+                                data-input-number-input />
+                            <span class="input-group-text gap-3">
+                                <button type="button" class="btn btn-primary btn-soft size-[22px] rounded min-h-0 p-0"
+                                    aria-label="Decrement button" data-input-number-decrement>
+                                    <span class="icon-[tabler--minus] size-3.5 flex-shrink-0"></span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-soft size-[22px] rounded min-h-0 p-0"
+                                    aria-label="Increment button" data-input-number-increment>
+                                    <span class="icon-[tabler--plus] size-3.5 flex-shrink-0"></span>
+                                </button>
+                            </span>
+                            @error('price')
+                                <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                            @enderror
+                        </div>
+                    </div>
+                    <div>
+                        <label class="label label-text" for="stock">Stock:</label>
+                        <div class="input-group max-w-sm" data-input-number>
+                            <input class="input" id="stock" name="stock" type="text" value="0"
+                                data-input-number-input />
+                            <span class="input-group-text gap-3">
+                                <button type="button" class="btn btn-primary btn-soft size-[22px] rounded min-h-0 p-0"
+                                    aria-label="Decrement button" data-input-number-decrement>
+                                    <span class="icon-[tabler--minus] size-3.5 flex-shrink-0"></span>
+                                </button>
+                                <button type="button" class="btn btn-primary btn-soft size-[22px] rounded min-h-0 p-0"
+                                    aria-label="Increment button" data-input-number-increment>
+                                    <span class="icon-[tabler--plus] size-3.5 flex-shrink-0"></span>
+                                </button>
+                            </span>
+                            @error('stock')
+                                <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
+                            @enderror
                         </div>
                     </div>
                 </div>
-                @error('image')
-                    <span class="text-xs text-red-600 dark:text-red-400">
-                        {{ $message }}
-                    </span>
-                @enderror
-                <label class="block mt-4 text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">
-                        Price
-                    </span>
-                    <input
-                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                        type="number" name="price" placeholder="Input Price" />
-                    @error('price')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
+                <div>
+                    <label class="label label-text" for="image">Image</label>
+                    @error('image')
+                        <span class="text-xs text-red-600 dark:text-red-400">{{ $message }}</span>
                     @enderror
-                </label>
-                <label class="block mt-4 text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">
-                        Stock
-                    </span>
-                    <input
-                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input"
-                        type="number" name="stock" placeholder="Input Stock" />
-                    @error('stock')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </label>
-
-                <label class="block mt-4 text-sm">
-                    <span class="text-gray-700 dark:text-gray-400">
-                        Category Product
-                    </span>
-                    <select
-                        class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select"
-                        name="category_id">
-                        <option value="">Select Category</option>
-                        @foreach ($categories as $category)
-                            <option value="{{ $category->id }}">{{ $category->category_name }}</option>
-                        @endforeach
-                    </select>
-                    @error('category_id')
-                        <span class="text-xs text-red-600 dark:text-red-400">
-                            {{ $message }}
-                        </span>
-                    @enderror
-                </label>
-
-                <div class="mt-6 flex gap-6">
-                    <button type="submit"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-lg shadow hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-teal-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                        </svg>
-                        Save
-                    </button>
-
-                    <a href="/dashboard/product"
-                        class="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-lg shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-blue-200">
-                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 12H3m12 0l-4-4m4 4l-4 4"></path>
-                        </svg>
-                        Back
-                    </a>
+                    <div class="flex flex-col items-center justify-center dark:bg-base-900 p-4">
+                        <div class="w-full max-w-md dark:bg-base-900 p-6 rounded-lg shadow-md">
+                            <div class="border-2 border-dashed border-gray-400 rounded-lg p-6 text-center">
+                                <input type="file" id="file-upload" name="image[]" accept=".jpg,.jpeg,.png"
+                                    class="hidden" multiple>
+                                <label for="file-upload" class="cursor-pointer">
+                                    <p class="text-gray-600">Drop your files here or browse</p>
+                                    <p class="text-sm text-gray-500">Pick files up to 2MB each.</p>
+                                </label>
+                            </div>
+                            <div id="file-preview" class="mt-4 space-y-2"></div>
+                        </div>
+                    </div>
                 </div>
 
-        </form>
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
     </div>
     <script>
         const name = document.querySelector('#name');
@@ -169,5 +136,45 @@
 
             document.querySelector('#description').value = description;
         };
+        document.getElementById('file-upload').addEventListener('change', function(event) {
+            const files = event.target.files;
+            const previewContainer = document.getElementById('file-preview');
+
+            for (let i = 0; i < files.length; i++) {
+                const file = files[i];
+                const fileReader = new FileReader();
+
+                fileReader.onload = function(e) {
+                    const previewElement = document.createElement('div');
+                    previewElement.className = 'flex items-center justify-between p-2 bg-gray-50 rounded-lg';
+
+                    if (file.type.startsWith('image/')) {
+                        previewElement.innerHTML = `
+          <div class="flex items-center space-x-2">
+            <img src="${e.target.result}" alt="${file.name}" class="w-10 h-10 object-cover rounded">
+            <span>${file.name}</span>
+          </div>
+          <button onclick="removeFile(this)" class="text-red-500 hover:text-red-700">Remove</button>
+        `;
+                    } else {
+                        previewElement.innerHTML = `
+          <div class="flex items-center space-x-2">
+            <span>${file.name}</span>
+          </div>
+          <button onclick="removeFile(this)" class="text-red-500 hover:text-red-700">Remove</button>
+        `;
+                    }
+
+                    previewContainer.appendChild(previewElement);
+                };
+
+                fileReader.readAsDataURL(file);
+            }
+        });
+
+        function removeFile(button) {
+            const previewElement = button.closest('div');
+            previewElement.remove();
+        }
     </script>
 @endsection

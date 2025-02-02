@@ -8,12 +8,21 @@
                 <img id="mainImage" src="{{ asset('storage/' . json_decode($product->image)[0]) }}" alt="Produk"
                     class="w-72 h-72 object-cover rounded-lg shadow-lg">
                 <div class="flex mt-4 space-x-2">
+                    <img src="{{ asset('storage/' . json_decode($product->image)[0]) }}" alt="Varian"
+                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer"
+                        onclick="changeMainImage('{{ asset('storage/' . json_decode($product->image)[0]) }}')">
+
                     <img src="{{ asset('storage/' . json_decode($product->image)[1]) }}" alt="Varian"
-                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
-                    <img src="{{ asset('storage/' . json_decode($product->image)[2]) }}"alt="Varian"
-                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
-                    <img src="{{ asset('storage/' . json_decode($product->image)[3]) }}"alt="Varian"
-                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer">
+                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer"
+                        onclick="changeMainImage('{{ asset('storage/' . json_decode($product->image)[1]) }}')">
+
+                    <img src="{{ asset('storage/' . json_decode($product->image)[2]) }}" alt="Varian"
+                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer"
+                        onclick="changeMainImage('{{ asset('storage/' . json_decode($product->image)[2]) }}')">
+
+                    <img src="{{ asset('storage/' . json_decode($product->image)[3]) }}" alt="Varian"
+                        class="thumbnail w-14 h-14 object-cover rounded-lg shadow-md cursor-pointer"
+                        onclick="changeMainImage('{{ asset('storage/' . json_decode($product->image)[3]) }}')">
                 </div>
             </div>
 
@@ -143,5 +152,18 @@
                 toggleDescription.textContent = 'Lihat Selengkapnya';
             }
         });
+
+        function changeMainImage(src) {
+            document.getElementById('mainImage').src = src;
+
+            // Menghapus kelas 'active' dari semua thumbnail
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            thumbnails.forEach(thumbnail => {
+                thumbnail.classList.remove('border-4', 'border-blue-500');
+            });
+
+            // Menambahkan kelas aktif pada thumbnail yang diklik
+            event.target.classList.add('border-4', 'border-blue-500');
+        }
     </script>
 @endsection

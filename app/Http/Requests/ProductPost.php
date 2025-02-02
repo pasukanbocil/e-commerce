@@ -27,7 +27,7 @@ class ProductPost extends FormRequest
             'description' => 'required',
             'price' => 'required|numeric',
             'stock' => 'required|numeric',
-            'image.*' => '|image|mimes:jpeg,png,jpg|max:2048',
+            'image.*' => 'image|mimes:jpeg,png,jpg|max:2048',
             'category_id' => 'required|exists:categories,id'
         ];
     }
