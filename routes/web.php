@@ -52,6 +52,7 @@ Route::get('/dashboard/product', [ProductController::class, 'index']);
 Route::get('/dashboard/product/create', [ProductController::class, 'create']);
 Route::get('/dashboard/product/checkSlug', [ProductController::class,'checkSlug']);
 Route::post('/product', [ProductController::class, 'store']);
+Route::get('/dashboard/product/{product:slug}/show',[ProductController::class,'show']);
 Route::get('/dashboard/product/{id}/edit', [ProductController::class, 'edit']);
 Route::put('/product/{id}', [ProductController::class, 'update']);
 Route::delete('/product/{id}', [ProductController::class, 'destroy']);

@@ -36,12 +36,6 @@
                     <table class="table min-w-full" id="#table-product">
                         <thead>
                             <tr>
-                                <th scope="col" class="--exclude-from-ordering w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-all" type="checkbox" class="checkbox checkbox-sm" />
-                                        <label for="table-search-all" class="sr-only">Checkbox</label>
-                                    </div>
-                                </th>
                                 <th scope="col" class="group w-fit">
                                     <div class="flex items-center justify-between">
                                         Product Name
@@ -52,7 +46,7 @@
                                 </th>
                                 <th scope="col" class="group w-fit">
                                     <div class="flex items-center justify-between">
-                                        Price
+                                        Slug
                                         <span class="icon-[tabler--chevron-up] datatable-ordering-asc:block hidden"></span>
                                         <span
                                             class="icon-[tabler--chevron-down] datatable-ordering-desc:block hidden"></span>
@@ -60,7 +54,15 @@
                                 </th>
                                 <th scope="col" class="group w-fit">
                                     <div class="flex items-center justify-between">
-                                        Availability
+                                        Excerpt
+                                        <span class="icon-[tabler--chevron-up] datatable-ordering-asc:block hidden"></span>
+                                        <span
+                                            class="icon-[tabler--chevron-down] datatable-ordering-desc:block hidden"></span>
+                                    </div>
+                                </th>
+                                <th scope="col" class="group w-fit">
+                                    <div class="flex items-center justify-between">
+                                        Category
                                         <span class="icon-[tabler--chevron-up] datatable-ordering-asc:block hidden"></span>
                                         <span
                                             class="icon-[tabler--chevron-down] datatable-ordering-desc:block hidden"></span>
@@ -70,535 +72,35 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-1" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-1" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Apple iPhone 15</td>
-                                <td>$999</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-2" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-2" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Samsung Galaxy S23</td>
-                                <td>$899</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-3" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-3" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Sony WH-1000XM5</td>
-                                <td>$399</td>
-                                <td><span class="badge badge-soft badge-error badge-sm">Out of Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-4" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-4" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Dell XPS 15</td>
-                                <td>$1,299</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-5" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-5" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Logitech MX Master 3</td>
-                                <td>$99</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-6" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-6" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Microsoft Surface Laptop 5</td>
-                                <td>$1,499</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-7" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-7" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">HP Spectre x360</td>
-                                <td>$1,199</td>
-                                <td><span class="badge badge-soft badge-error badge-sm">Out of Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-8" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-8" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Apple Watch Series 9</td>
-                                <td>$499</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-9" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-9" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Google Pixel 7</td>
-                                <td>$599</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-10" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-10" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Bose QuietComfort Earbuds II</td>
-                                <td>$279</td>
-                                <td><span class="badge badge-soft badge-error badge-sm">Out of Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-11" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-11" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Asus ROG Zephyrus G14</td>
-                                <td>$1,899</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-12" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-12" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Sony PlayStation 5</td>
-                                <td>$499</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-13" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-13" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Amazon Echo Dot (5th Gen)</td>
-                                <td>$49</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-14" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-14" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">NVIDIA GeForce RTX 4090</td>
-                                <td>$1,599</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-15" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-15" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Lenovo ThinkPad X1 Carbon</td>
-                                <td>$1,799</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-16" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-16" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Google Nest Hub (2nd Gen)</td>
-                                <td>$99</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-17" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-17" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Fitbit Charge 6</td>
-                                <td>$149</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-18" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-18" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Razer Blade 16</td>
-                                <td>$2,499</td>
-                                <td><span class="badge badge-soft badge-error badge-sm">Out of Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-19" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-19" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Oculus Quest 3</td>
-                                <td>$499</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-20" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-20" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Canon EOS R8</td>
-                                <td>$1,699</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-21" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-21" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">DJI Mavic 3 Pro</td>
-                                <td>$2,199</td>
-                                <td><span class="badge badge-soft badge-success badge-sm">In Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-22" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-22" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">Alienware Aurora R15</td>
-                                <td>$2,899</td>
-                                <td><span class="badge badge-soft badge-error badge-sm">Out of Stock</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td class="w-3.5 pe-0">
-                                    <div class="flex h-5 items-center">
-                                        <input id="table-search-23" type="checkbox" class="checkbox checkbox-sm"
-                                            data-datatable-row-selecting-individual="" />
-                                        <label for="table-search-23" class="sr-only">Checkbox</label>
-                                    </div>
-                                </td>
-                                <td class="text-nowrap">SteelSeries Arctis Nova Pro</td>
-                                <td>$349</td>
-                                <td><span class="badge badge-soft badge-warning badge-sm">Limited</span></td>
-                                <td>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--pencil] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--trash] size-5"></span>
-                                    </button>
-                                    <button class="btn btn-circle btn-text btn-sm" aria-label="Action button">
-                                        <span class="icon-[tabler--dots-vertical] size-5"></span>
-                                    </button>
-                                </td>
-                            </tr>
+                            @foreach ($products as $product)
+                                <tr>
+                                    <td class="text-wrap">{{ $product->name }}</td>
+                                    <td class="text-wrap">{{ $product->slug }}</td>
+                                    <td class="text-wrap">{{ $product->excerpt }}</td>
+                                    <td class="text-wrap">{{ $product->category->category_name }}</td>
+                                    <td>
+                                        <a href="/dashboard/product/{{ $product->slug }}/show"
+                                            class="btn btn-circle btn-text btn-sm" aria-label="View product">
+                                            <span class="icon-[tabler--eye] size-5"></span>
+                                        </a>
+                                        <a href="" class="btn btn-circle btn-text btn-sm" aria-label="Edit product">
+                                            <span class="icon-[tabler--pencil] size-5"></span>
+                                        </a>
+                                        <form action="" method="POST" class="inline">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-circle btn-text btn-sm"
+                                                aria-label="Delete product">
+                                                <span class="icon-[tabler--trash] size-5"></span>
+                                            </button>
+                                        </form>
+                                        <a href="#" class="btn btn-circle btn-text btn-sm" aria-label="More actions">
+                                            <span class="icon-[tabler--dots-vertical] size-5"></span>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

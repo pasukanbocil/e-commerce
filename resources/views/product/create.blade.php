@@ -108,8 +108,9 @@
                     </div>
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex space-x-4"> <!-- Flex container dengan jarak antara tombol -->
                     <button type="submit" class="btn btn-primary">Submit</button>
+                    <a href="/dashboard/product" class="btn btn-secondary">Back</a>
                 </div>
             </form>
         </div>

@@ -31,7 +31,7 @@ class ProductController extends Controller
 
     public function store(ProductPost $request)
     {
-        
+
         $validatedData = $request->validated();
         if ($request->hasFile('image')) {
             $imagePaths = [];
@@ -50,6 +50,16 @@ class ProductController extends Controller
             ->success('Product ' . $validatedData->name . ' successfully created');
 
         return redirect('/dashboard/product');
+    }
+
+    public function show(Product $product)
+    {
+        return view('product.show', [
+            'title' => 'Detail Product | Kemed Store',
+            'product' => $product,
+
+            dd($product)
+        ]);
     }
 
     public function edit($id)
