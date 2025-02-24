@@ -57,8 +57,6 @@ class ProductController extends Controller
         return view('product.show', [
             'title' => 'Detail Product | Kemed Store',
             'product' => $product,
-
-            dd($product)
         ]);
     }
 
